@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h2>Дан массив имен. Используя соответствующую сортировку и бинарный поиск определить, есть ли в массиве имя длиной 5 символов и под каким индексом.</h2>
+	<script>
+		let userName = ['Olga', 'Macha', 'Anton', 'Boris', 'Nastia', 'Roma', 'Anastasiia']
+		function sortSelect(arr) {
+			const prevLastIndex = arr.length - 1
+			for (let i = 0; i < prevLastIndex; i++) {
+				let currentMinIndex = i
+				for (let j = i; j < arr.length; j++) {
+					if (arr[j] < arr[currentMinIndex]) currentMinIndex = j
+				}
+				if (i !== currentMinIndex) {
+					let tmp = arr[i]
+					arr[i] = arr[currentMinIndex]
+					arr[currentMinIndex] = tmp
+				}
+			}
+			return arr
+		}
+		const sortName = sortSelect(userName)
+		console.log(sortName)
+		//-------------search name--------------
+		function findName(arr, nameLength) {
+			let start = 0;
+			let end = arr.length - 1;
+
+			while (start <= end) {
+				const middle = Math.floor((start + end) / 2)
+
+				if (arr[middle].length === nameLength) {
+					return middle;
+				} else if (arr[middle].length < nameLength) {
+					start = middle + 1
+				} else {
+					end = middle - 1
+				}
+			}
+
+			return -1;
+		}
+
+		const index = findName(sortName, 5);
+		console.log(index)
+		if (index === -1) {
+			console.log('Name not found.');
+		} else {
+			console.log(`Name found at index ${index}.`);
+		}
+	</script>
+</body>
+
+</html>

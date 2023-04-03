@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h2>Дан массив 30 случайных целых чисел. Подсчитать сколько было обменов при сортировке смешением.</h2>
+	<script>
+		function getRandomNumber(minV, maxV) {
+			return minV + Math.floor(Math.random() * (maxV - minV + 1))
+		}
+		function inputeNewArr(numberArr, minNumber, maxNumber) {
+			let arr = []
+			for (let i = 0; i < numberArr; i++) {
+				const randomNum = getRandomNumber(minNumber, maxNumber)
+				arr.push(randomNum)
+			}
+			return arr
+		}
+		const newArr = inputeNewArr(30, 1, 100)
+
+		function shuffLeSort(arr) {
+			let count = 0
+			let leftIndex = 0
+			let rightIndex = arr.length - 1
+			while (leftIndex < rightIndex) {
+				for (let index = leftIndex; index < rightIndex; index++) {
+					if (arr[index] > arr[index + 1]) {
+						[arr[index], arr[index + 1]] = [arr[index + 1], arr[index]]
+						count++
+					}
+				}
+				rightIndex--
+
+				for (let index = rightIndex; index > leftIndex; index--) {
+					if (arr[index] < arr[index - 1]) {
+						[arr[index], arr[index - 1]] = [arr[index - 1], arr[index]]
+						count++
+					}
+				}
+				leftIndex++
+			}
+			return [arr, count]
+		}
+
+		const howMenysort = shuffLeSort(newArr)
+		document.write(`Total sum ${howMenysort[1]}<br>`)
+		document.write(`${howMenysort}<br>`)
+	</script>
+</body>
+
+</html>

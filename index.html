@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>lesson 12</h1>
+	<ol>
+		<li>
+			<a href="/lesson-12/task/task1.html" class="href">Задача</a>
+		</li>
+		<li>
+			<a href="/lesson-12/task/task2.html" class="href">Задача</a>
+		</li>
+		<li>
+			<a href="/lesson-12/task/task3.html" class="href">Задача</a>
+		</li>
+		<li>
+			<a href="/lesson-12/task/task4.html" class="href">Задача</a>
+		</li>
+		<li>
+			<a href="/lesson-12/task/task5.html" class="href">Задача</a>
+		</li>
+		<li>
+			<a href="/lesson-12/task/task6.html" class="href">Задача</a>
+		</li>
+	</ol>
+	<script>
+		// let product = {
+		// 	title: 'table',
+		// 	factory: {
+		// 		title: 'Sun',
+		// 		addres: {
+		// 			zipCode: '222333',
+		// 			city: 'Addddd',
+		// 			street: 'Adergaeg',
+		// 			num: 12134
+		// 		}
+		// 	},
+		// 	expiredDate: {
+		// 		year: 2023,
+		// 		month: 12,
+		// 		day: 1234
+		// 	},
+		// 	prise: 1234
+		// }
+		let booksList = [
+			{
+				title: 'Title 0',
+				autor: 'Autor 0',
+				year: 2000,
+				price: 2000,
+				count: 100,
+			},
+			{
+				title: 'Title 1',
+				autor: 'Autor 1',
+				year: 2000,
+				price: 2000,
+				count: 100,
+			},
+			{
+				title: 'Title 2',
+				autor: 'Autor 2',
+				year: 2000,
+				price: 2000,
+				count: 100,
+			},
+		]
+		// const numAfter = booksList.reduce((prevSum, book) => (book.year > 2000 ? prevSum + book.count : prevSum), 0)
+		const booksTotalPrices = booksList.map((book) => book.price * book.count)
+	</script>
+</body>
+
+</html>
